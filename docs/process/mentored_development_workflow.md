@@ -242,18 +242,88 @@ A small feature is done when:
 
 Continue with Stage 1: minimal FastAPI backend structure.
 
-Recommended next task:
+### Stage 1 Goal
+
+Create a small, understandable backend entry point that proves the project can run locally and gives future modules a clean place to attach routers, configuration, and services.
+
+At the end of this stage, a new developer should be able to:
+
+- Start the backend with one command.
+- Open `/` and understand what the service is.
+- Open `/health` and verify the service is alive.
+- Open `/docs` and see the generated FastAPI documentation.
+- Read `backend/app/main.md` and understand what `main.py` is responsible for.
+- Understand that business logic does not belong in `main.py`.
+
+### Current Task
+
+Improve the FastAPI application entry point and document it.
+
+Files involved:
 
 ```text
-Add or refine backend/app/main.py and backend/app/main.md.
+backend/app/main.py
+backend/app/main.md
 ```
 
-Focus:
+### What Should Be Done in `backend/app/main.py`
 
-- Keep `main.py` small.
-- Include only app creation and route registration.
-- Keep business logic out of `main.py`.
-- Document the purpose of `main.py` in `main.md`.
+Do not add business logic yet.
+
+The file should only handle:
+
+- Creating the FastAPI `app` object.
+- Defining application metadata such as title, version, and description.
+- Providing a simple root endpoint `/` that introduces the service.
+- Providing a simple health endpoint `/health`.
+
+Expected endpoints:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /` | Human-readable service overview for developers/testers |
+| `GET /health` | Minimal health check for confirming the backend is running |
+| `GET /docs` | FastAPI-generated API documentation |
+
+### What Should Be Done in `backend/app/main.md`
+
+The documentation file should explain:
+
+- What `main.py` is for.
+- What it should contain.
+- What it should not contain.
+- Which endpoints currently exist.
+- How to run the backend.
+- How to manually test `/`, `/health`, and `/docs`.
+- What future modules should be moved into routers or services.
+
+### Acceptance Criteria
+
+This task is done when:
+
+- `uv run uvicorn backend.app.main:app --reload` starts without errors.
+- `/` returns a simple project/service status response.
+- `/health` returns a simple alive/ok response.
+- `/docs` opens successfully.
+- `main.py` is small and readable.
+- `main.py` has appropriate docstrings or comments where helpful.
+- `main.md` exists and explains the file clearly.
+- The change is committed and pushed to `codex`.
+- The assistant reviews the pushed changes.
+
+### Not Part of This Task
+
+Do not implement these yet:
+
+- Database connection logic.
+- Business requirement parsing.
+- EUDI verification request generation.
+- Wallet response simulation.
+- Audit log storage.
+- Dashboard logic.
+- Authentication or authorization.
+
+These belong to later stages.
 
 ## Review Request Template
 
@@ -269,8 +339,9 @@ Changed area:
 - backend/app/main.md
 
 What I tried to do:
-- Add root endpoint
+- Add or refine root endpoint
 - Keep health endpoint working
+- Document the role of `main.py`
 
 What I want reviewed:
 - Structure
@@ -278,4 +349,5 @@ What I want reviewed:
 - Docstrings
 - Missing tests
 - Professional formatting
+- Whether the file stays inside the Stage 1 scope
 ```
