@@ -10,6 +10,16 @@ app = FastAPI(
 )
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {
+        "name": "EUDI Relying Party Integration Bus",
+        "status": "running",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.get("/health")
 def health_check() -> dict[str, str]:
     return {"status": "ok"}
