@@ -16,6 +16,7 @@ Each stage has:
 - required outputs
 - files to create or update
 - clear exit criteria
+- current status
 
 ---
 
@@ -25,7 +26,23 @@ Each stage has:
 
 ---
 
+## Current Project Status
+
+| Item | Status |
+|---|---|
+| Current phase | Stage 1 — Use Cases and Business Process Modeling |
+| Stage 0 | Complete |
+| Active branch | `codex` |
+| Planning files location | `docs/plan/` |
+| Protocol files location | `docs/protocol/` |
+
+Stage 0 is complete. The project now moves fully into Stage 1.
+
+---
+
 ## Stage 0 — Project Boundary and Foundation
+
+**Status:** Complete
 
 ### Goal
 
@@ -43,27 +60,40 @@ This stage prevents scope creep.
 
 ### Deliverables
 
+| Deliverable | Path | Status |
+|---|---|---|
+| Main project overview | `README.md` | Available |
+| Project scope | `docs/project_scope.md` | Complete |
+| Glossary | `docs/glossary.md` | Complete |
+| Stage plan | `docs/plan/plan_stages.md` | Updated |
+| Week plan | `docs/plan/plan_weeks.md` | Available / to keep updated |
+| Terminal and Git workflow cheatsheet | `docs/cheatsheets/terminal_git_workflow_cheatsheet.md` | Complete |
+| Mentored development workflow | `docs/process/mentored_development_workflow.md` | Complete |
+| Daily protocol folder | `docs/protocol/` | Created |
+
+### Files Worked On
+
 - `README.md`
 - `docs/project_scope.md`
 - `docs/glossary.md`
-- `docs/plan_stages.md`
-- `docs/plan_weeks.md`
-
-### Files to Work On
-
-- `README.md`
-- `docs/project_scope.md`
-- `docs/glossary.md`
+- `docs/plan/plan_stages.md`
+- `docs/plan/plan_weeks.md`
+- `docs/process/mentored_development_workflow.md`
+- `docs/cheatsheets/terminal_git_workflow_cheatsheet.md`
+- `docs/protocol/2026-05-21_protocol.md`
 
 ### Exit Criteria
 
-This stage is complete when:
+This stage is complete because:
 
-- the README explains the project clearly
+- the README explains the project at a high level
 - the project scope is written
 - important terms are listed in the glossary
 - version 1 boundaries are clear
 - future topics are separated from current work
+- GitHub and local Git workflow are working on the `codex` branch
+- the protocol workflow is established
+- the mentored development workflow is documented
 
 ### Do Not Work On Yet
 
@@ -74,9 +104,15 @@ This stage is complete when:
 - full legal compliance
 - frontend design details
 
+### Stage 0 Closure Note
+
+Stage 0 is now closed. New work should not expand the foundation indefinitely. If a missing foundation topic appears, document it briefly and continue Stage 1 unless it blocks the current work.
+
 ---
 
 ## Stage 1 — Use Cases and Business Process Modeling
+
+**Status:** Active
 
 ### Goal
 
@@ -101,11 +137,12 @@ The project should start from business processes, not from technology.
 
 ### Deliverables
 
-- `docs/use_cases.md`
-- first use case descriptions
-- business process list
-- claim requirement list
-- data minimization notes
+| Deliverable | Path | Status |
+|---|---|---|
+| Use case documentation | `docs/use_cases.md` | To do |
+| Business process model notes | `docs/business_processes.md` or section inside `docs/use_cases.md` | To decide |
+| Verification template examples | `examples/verification_templates.json` | To do |
+| Data minimization notes | Section inside `docs/use_cases.md` | To do |
 
 ### Files to Work On
 
@@ -123,9 +160,31 @@ This stage is complete when:
 - each use case has a privacy note
 - each use case can become a verification template
 
+### Immediate Next Work
+
+Start with `docs/use_cases.md`.
+
+Recommended first use case structure:
+
+```text
+Use case name
+Business context
+Actor / relying party
+User / holder
+Business need
+Minimum required claims
+Optional claims
+Claims that should not be requested
+Privacy note
+Possible verification template mapping
+Open questions
+```
+
 ---
 
 ## Stage 2 — Verification Template Design
+
+**Status:** Planned
 
 ### Goal
 
@@ -176,6 +235,8 @@ This stage is complete when:
 
 ## Stage 3 — Mock Data and Trust Model
 
+**Status:** Planned
+
 ### Goal
 
 Create mock wallet responses and a simple trusted issuer list.
@@ -217,6 +278,8 @@ This stage is complete when:
 
 ## Stage 4 — Backend Skeleton
 
+**Status:** In early preparation / planned technical stage
+
 ### Goal
 
 Create the first FastAPI backend structure.
@@ -225,48 +288,59 @@ This stage creates the technical foundation without complex business logic.
 
 ### Planned Backend Structure
 
-    backend/
-    ├── app/
-    │   ├── main.py
-    │   ├── database.py
-    │   ├── models/
-    │   ├── schemas/
-    │   ├── services/
-    │   └── routers/
-    ├── tests/
-    └── requirements.txt
+```text
+backend/
+├── app/
+│   ├── main.py
+│   ├── main.md
+│   ├── database.py
+│   ├── models/
+│   ├── schemas/
+│   ├── services/
+│   └── routers/
+├── tests/
+└── pyproject-managed dependencies
+```
 
 ### First Endpoint
 
 | Method | Endpoint | Purpose |
 |---|---|---|
+| GET | `/` | Basic project/service overview |
 | GET | `/health` | Check whether the backend is running |
 
 ### Deliverables
 
 - FastAPI app starts successfully
+- `/` endpoint works
 - `/health` endpoint works
-- `requirements.txt` exists
+- root-level `pyproject.toml` and `uv.lock` manage dependencies
 - basic backend folder structure is ready
+- `backend/app/main.md` explains the entry point
 
 ### Files to Work On
 
-- `backend/requirements.txt`
+- `pyproject.toml`
 - `backend/app/main.py`
-- `backend/app/database.py`
+- `backend/app/main.md`
+- `backend/app/database.py` later, when storage becomes necessary
 
 ### Exit Criteria
 
 This stage is complete when:
 
 - backend can be started locally
+- `/` returns a service overview
 - `/health` returns a success response
 - dependencies are documented
 - the project can be opened by another developer
+- `main.py` contains no business logic
 
 ---
 
 ## Stage 5 — Schemas and Data Models
+
+**Status:** Planned
 
 ### Goal
 
@@ -311,6 +385,8 @@ This stage is complete when:
 ---
 
 ## Stage 6 — Template and Request API
+
+**Status:** Planned
 
 ### Goal
 
@@ -359,6 +435,8 @@ This stage is complete when:
 ---
 
 ## Stage 7 — Mock Wallet Presentation and Validation
+
+**Status:** Planned
 
 ### Goal
 
@@ -409,6 +487,8 @@ This stage is complete when:
 
 ## Stage 8 — Audit Logging
 
+**Status:** Planned
+
 ### Goal
 
 Store important events from the verification process.
@@ -457,6 +537,8 @@ This stage is complete when:
 ---
 
 ## Stage 9 — Analytics and Dashboard
+
+**Status:** Planned
 
 ### Goal
 
@@ -511,6 +593,8 @@ This stage is complete when:
 
 ## Stage 10 — Testing and Documentation
 
+**Status:** Planned
+
 ### Goal
 
 Make the project understandable and testable.
@@ -547,6 +631,8 @@ This stage is complete when:
 ---
 
 ## Stage 11 — Future Expansion
+
+**Status:** Backlog
 
 ### Goal
 
@@ -587,20 +673,20 @@ It is a controlled backlog for future development.
 
 ## Stage Summary
 
-| Stage | Name | Main Result |
-|---|---|---|
-| 0 | Project Boundary | Clear scope |
-| 1 | Use Cases | Business scenarios |
-| 2 | Templates | Structured verification templates |
-| 3 | Mock Data | Wallet responses and trusted issuers |
-| 4 | Backend Skeleton | Running FastAPI app |
-| 5 | Schemas | Pydantic data structures |
-| 6 | Template and Request API | Create/list templates and requests |
-| 7 | Validation | Mock wallet response validation |
-| 8 | Audit Logging | Privacy-preserving event history |
-| 9 | Dashboard | Process visibility |
-| 10 | Testing and Documentation | Portfolio-ready foundation |
-| 11 | Future Expansion | Controlled backlog |
+| Stage | Name | Status | Main Result |
+|---|---|---|---|
+| 0 | Project Boundary | Complete | Clear scope |
+| 1 | Use Cases | Active | Business scenarios |
+| 2 | Templates | Planned | Structured verification templates |
+| 3 | Mock Data | Planned | Wallet responses and trusted issuers |
+| 4 | Backend Skeleton | Planned / early preparation | Running FastAPI app |
+| 5 | Schemas | Planned | Pydantic data structures |
+| 6 | Template and Request API | Planned | Create/list templates and requests |
+| 7 | Validation | Planned | Mock wallet response validation |
+| 8 | Audit Logging | Planned | Privacy-preserving event history |
+| 9 | Dashboard | Planned | Process visibility |
+| 10 | Testing and Documentation | Planned | Portfolio-ready foundation |
+| 11 | Future Expansion | Backlog | Controlled backlog |
 
 ---
 
@@ -614,11 +700,10 @@ Needed for the current prototype.
 
 Examples:
 
-- templates
-- mock wallet responses
-- validation
-- audit logs
-- dashboard
+- Stage 1 use cases
+- business process descriptions
+- data minimization notes
+- verification template ideas
 
 ### Learn Later
 
