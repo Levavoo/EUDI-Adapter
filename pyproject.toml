@@ -1,0 +1,34 @@
+[project]
+name = "eudi-relying-party-integration-bus"
+version = "0.1.0"
+description = "Prototype for translating business identity-check requirements into privacy-preserving EUDI Wallet verification requests."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "sqlalchemy",
+    "python-dotenv",
+    "httpx",
+    "streamlit",
+    "pandas",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false

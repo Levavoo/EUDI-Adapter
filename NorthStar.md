@@ -1,0 +1,1 @@
+I am building a prototype that helps organizations translate business identity-check requirements into privacy-preserving wallet verification requests, process simulated wallet responses, and analyze the resulting audit logs.
