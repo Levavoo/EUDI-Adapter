@@ -6,10 +6,10 @@ Status: Draft
 
 ## Purpose
 
-This file tracks official and supporting sources used in the EUDI Notebook.
+Tracks official and supporting sources used in this notebook.
 
-## Source table
+## Used sources
 
-| Date added | Source title | Source type | Link | Specific sections used | Used in note | Status |
-|---|---|---|---|---|---|---|
-| 2026-05
+1. EUDI Wallet Architecture and Reference Framework — https://eudi.dev/arf/
+   - Type: official architecture reference
+   - Used sections: 2 Definitions; 4.1 Roles in the Ecos
