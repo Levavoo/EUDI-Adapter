@@ -1,10 +1,27 @@
 # EUDI Source Register
 
 Date: 2026-05-21
-Updated: 2026-06-11
+Last updated: 2026-06-11
+Status: Active register
 
-## Sources
+---
 
-1. https://eudi.dev/arf/ — official ARF site. Used: definitions, roles, wallet basics, privacy, trust.
+## Purpose
 
-2. https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/tree/main — official ARF repository.
+This file tracks the official and supporting sources used in the EUDI Notebook.
+
+The register should make clear:
+
+- which source was used
+- which sections were used
+- which notebook files depend on the source
+- whether the source has already been processed into notes
+
+---
+
+## Source status values
+
+| Status | Meaning |
+|---|---|
+| Open | Source identified but not yet processed. |
+| Reading | Source
