@@ -1,8 +1,7 @@
 # EUDI Source Register
 
 Date: 2026-05-21
-Last updated: 2026-06-11
-Status: Draft
+Updated: 2026-06-11
 
 ## Sources used
 
