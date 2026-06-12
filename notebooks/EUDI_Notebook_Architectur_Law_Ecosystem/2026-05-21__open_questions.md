@@ -18,4 +18,23 @@ For now, this file is intentionally left empty for manual review.
 
 ## Open questions
 
-|
+| Date added | Question | Related topic | Project relevance | Status | Answer note |
+|---|---|---|---|---|---|
+
+---
+
+## Status values
+
+| Status | Meaning |
+|---|---|
+| Open | Not researched yet. |
+| Researching | Currently being researched. |
+| Answered | Answered in a note. |
+| Deferred | Not needed for current prototype version. |
+| Closed | No longer relevant. |
+
+---
+
+## Review note
+
+Open questions from individual notes should be copied here manually after review.
